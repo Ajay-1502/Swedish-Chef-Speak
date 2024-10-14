@@ -8,7 +8,10 @@ function generateUrl(inputValue){
     return url + "?" + "text=" + inputValue;
 }
 
-
+function errorHandler(error){
+    console.log("Error Occured : ",error);
+    alert("Something Went Wrong With Server, Try Again After Sometime");
+}
 
 function clickHandler(){
     let inputValue = userInput.value;
@@ -18,7 +21,7 @@ function clickHandler(){
         let translatedText = json.contents.translated;
         output.innerText = translatedText;
     })
-    
+    .catch(errorHandler)
 }
 
 button.addEventListener("click",clickHandler);
